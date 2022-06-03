@@ -3,8 +3,8 @@
 #include <time.h>
 using namespace std;
 
-string nama, norek, isiQueue[100], input_trans;
-int password, i, passkey, saldo_awal, saldo_akhir, saldo_tarik, new_pass, trans_ops, cetak, inp_rek, pilih_dafbank, lanjut, bukti_s, choose_ops, trans, back_menu;
+string nama, norek, isiQueue[100], input_trans[1000];
+int password, i, passkey, saldo_awal, saldo_akhir, saldo_tarik[100], new_pass, trans_ops, cetak, inp_rek, pilih_dafbank, lanjut, bukti_s, choose_ops, trans, back_menu;
 int input_data;
 int jumlah = -1;
 time_t t = time(NULL);
@@ -20,7 +20,7 @@ void Enqueue()
     for (auto i = 1; i <= input_data; i++)
     {
         jumlah += 1;
-        isiQueue[jumlah] = input_trans;
+        isiQueue[jumlah] = input_trans[i];
     }
 }
 
@@ -221,14 +221,14 @@ void ganti_pin_en()
 
 void ops_tarik_tun()
 {
-    saldo_akhir = saldo_awal - saldo_tarik;
+    saldo_akhir = saldo_awal - saldo_tarik[i];
 }
 
 void info_tar_saldo_id()
 {
     cout << "PENARIKAN TUNAI\n"
          << "NO. KARTU     : " << norek
-         << "\nJUMLAH        : RP. " << saldo_tarik
+         << "\nJUMLAH        : RP. " << saldo_tarik[i]
          << "\nSALDO TERSISA : RP. " << saldo_akhir;
 }
 
@@ -236,7 +236,7 @@ void info_tar_saldo_en()
 {
     cout << "WITHDRAWL CASH\n"
          << "NUMBER CARD      : " << norek
-         << "\nTOTAL            : " << saldo_tarik
+         << "\nTOTAL            : " << saldo_tarik[i]
          << "\nLEFTOVER BALANCE : " << saldo_akhir;
 }
 
@@ -412,7 +412,7 @@ void print_trans_id()
 {
     cout << "\nNAMA PENGIRIM  : " << nama 
          << "\nNO. REKENING   : " << norek
-         << "\nTRANSFER       : RP. " << saldo_tarik
+         << "\nTRANSFER       : RP. " << saldo_tarik[i]
          << "\nSALDO REK      : RP. " << saldo_akhir;
 }
 
@@ -420,7 +420,7 @@ void print_trans_en()
 {
     cout << "\nSENDER NAME    : " << nama
          << "\nACCOUNT NUMBER : " << norek
-         << "\nTRANSFER       : RP. " << saldo_tarik
+         << "\nTRANSFER       : RP. " << saldo_tarik[i]
          << "\nTOTAL BALANCE  : RP. " << saldo_awal;
 }
 
@@ -440,7 +440,7 @@ void menu_id(int test)
         switch (choose_ops)
         {
         case 1:
-            saldo_tarik = 2000000;
+            saldo_tarik[i] = 2000000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -454,7 +454,7 @@ void menu_id(int test)
             break;
         
         case 2:
-            saldo_tarik = 3000000;
+            saldo_tarik[i] = 3000000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -471,7 +471,7 @@ void menu_id(int test)
             cout << "    MASUKKAN JUMLAH PENARIKAN\n"
                  << "   DALAM KELIPATAN RP. 50.000\n"
                  << "MAKSIMUM PENARIKAN RP. 12.500.000\n\n\n";
-            cin >> saldo_tarik;
+            cin >> saldo_tarik[i];
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -485,6 +485,7 @@ void menu_id(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(1);
                 }
                 else
@@ -516,7 +517,7 @@ void menu_id(int test)
                 cout << "    MASUKKAN JUMLAH PENARIKAN\n"
                      << "   DALAM KELIPATAN RP. 50.000\n"
                      << "MAKSIMUM PENARIKAN RP. 12.500.000\n\n\n";
-                cin >> saldo_tarik;
+                cin >> saldo_tarik[i];
                 ops_tarik_tun();
                 if (saldo_akhir > 0)
                 {
@@ -549,6 +550,7 @@ void menu_id(int test)
                     if (back_menu == 1)
                     {
                         input_data += 1;
+                        saldo_awal = saldo_akhir;
                         menu_id(1);
                     }
                     else
@@ -572,7 +574,7 @@ void menu_id(int test)
                 switch (trans)
                 {
                 case 1:
-                    input_trans = "TRANSFER KE BANK PAKUAN";
+                    input_trans[i] = "TRANSFER KE BANK PAKUAN";
                     cout << "    TRANSFER KE BANK PAKUAN\n"    
                          << "      MASUKKAN NO.REKENING\n"
                          << "             TUJUAN\n\n\n\n\n";
@@ -580,7 +582,7 @@ void menu_id(int test)
                     cout << endl << endl << endl << endl << endl << endl
                          << "     SILAHKAN MASUKKAN JUMLAH\n"
                          << "      YANG AKAN DI TRANSFER\n\n\n\n\n";
-                    cin >> saldo_tarik;
+                    cin >> saldo_tarik[i];
                     cout << "     APAKAH ANDA YAKIN UNTUK\n"
                          << "     MELANJUTKAN TRANSAKSI?\n\n"
                          << "            TEKAN 1 JIKA YA ------>\n\n"
@@ -603,6 +605,7 @@ void menu_id(int test)
                             if (back_menu == 1)
                             {
                                 input_data += 1;
+                                saldo_awal = saldo_akhir;
                                 menu_id(1);
                             }
                             else
@@ -617,7 +620,7 @@ void menu_id(int test)
                     break;
                 
                 case 2:
-                    input_trans = "TRANSFER ANTAR BANK";
+                    input_trans[i] = "TRANSFER ANTAR BANK";
                     cout << "      PERLU MELIHAT KODE BANK?     \n"
                     << " KARENA UNTUK TRANSFER AKAN DIMULAI\n" 
                     << " DARI KODE BANK 3 DIGIT DIAWAL, DAN\n"
@@ -637,7 +640,7 @@ void menu_id(int test)
                         cout << endl << endl << endl << endl << endl << endl
                             << "     SILAHKAN MASUKKAN JUMLAH\n"
                             << "      YANG AKAN DI TRANSFER\n\n\n\n\n";
-                        cin >> saldo_tarik;
+                        cin >> saldo_tarik[i];
                         cout << "\n\n\n\n\n     APAKAH ANDA YAKIN UNTUK    \n"
                             << "     MELANJUTKAN TRANSAKSI?\n\n"
                             << "            TEKAN 1 JIKA YA ------>\n\n"
@@ -660,6 +663,7 @@ void menu_id(int test)
                             if (back_menu == 1)
                             {
                                 input_data += 1;
+                                saldo_awal = saldo_akhir;
                                 menu_id(1);
                             }
                             else
@@ -682,7 +686,7 @@ void menu_id(int test)
                         cout << endl << endl << endl << endl << endl << endl
                             << "     SILAHKAN MASUKKAN JUMLAH\n"
                             << "      YANG AKAN DI TRANSFER\n\n\n\n\n";
-                        cin >> saldo_tarik;
+                        cin >> saldo_tarik[i];
                         cout << "\n\n\n\n\n     APAKAH ANDA YAKIN UNTUK    \n"
                             << "     MELANJUTKAN TRANSAKSI?\n\n"
                             << "            TEKAN 1 JIKA YA ------>\n\n"
@@ -705,6 +709,7 @@ void menu_id(int test)
                             if (back_menu == 1)
                             {
                                 input_data += 1;
+                                saldo_awal = saldo_akhir;
                                 menu_id(1);
                             }
                             else
@@ -742,6 +747,7 @@ void menu_id(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(1);
                 }
                 else
@@ -753,7 +759,7 @@ void menu_id(int test)
             break;
 
         case 5:
-            saldo_tarik = 1500000;
+            saldo_tarik[i][i] = 1500000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -767,6 +773,7 @@ void menu_id(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(1);
                 }
                 else
@@ -782,7 +789,7 @@ void menu_id(int test)
             break;
 
         case 6:
-            saldo_tarik = 1000000;
+            saldo_tarik[i] = 1000000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -796,6 +803,7 @@ void menu_id(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(1);
                 }
                 else
@@ -811,7 +819,7 @@ void menu_id(int test)
             break;
 
         case 7:
-            saldo_tarik = 500000;
+            saldo_tarik[i] = 500000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -825,6 +833,7 @@ void menu_id(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(1);
                 }
                 else
@@ -840,7 +849,7 @@ void menu_id(int test)
             break;
 
         case 8:
-            saldo_tarik = 100000;
+            saldo_tarik[i] = 100000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -854,6 +863,7 @@ void menu_id(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(1);
                 }
                 else
@@ -888,7 +898,7 @@ void menu_en(int test)
         switch (choose_ops)
         {
         case 1:
-            saldo_tarik = 2000000;
+            saldo_tarik[i] = 2000000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -901,6 +911,7 @@ void menu_en(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(test+1);
                 }
                 else
@@ -916,7 +927,7 @@ void menu_en(int test)
             break;
         
         case 2:
-            saldo_tarik = 3000000;
+            saldo_tarik[i] = 3000000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -929,6 +940,7 @@ void menu_en(int test)
                 if (back_menu == 1)
                 {
                     input_data += 1;
+                    saldo_awal = saldo_akhir;
                     menu_id(test+1);
                 }
                 else
@@ -947,7 +959,7 @@ void menu_en(int test)
             cout << "   INSERT THE WITHDRAWLS CASH\n"
                  << "     IN MULTIPLE RP. 50.000\n"
                  << "MAXIMUM WITHDRAWLS RP. 12.500.000\n\n\n";
-            cin >> saldo_tarik;
+            cin >> saldo_tarik[i];
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -977,7 +989,7 @@ void menu_en(int test)
                 cout << "   INSERT THE WITHDRAWLS CASH\n"
                      << "     IN MULTIPLE RP. 50.000\n"
                      << "MAXIMUM WITHDRAWLS RP. 12.500.000\n\n\n";
-                cin >> saldo_tarik;
+                cin >> saldo_tarik[i];
                 ops_tarik_tun();
                 if (saldo_akhir > 0)
                 {
@@ -990,6 +1002,7 @@ void menu_en(int test)
                     if (back_menu == 1)
                     {
                         input_data += 1;
+                        saldo_awal = saldo_akhir;
                         menu_id(test+1);
                     }
                     else
@@ -1055,7 +1068,7 @@ void menu_en(int test)
                     cout << endl << endl << endl << endl << endl << endl
                          << "     INPUT THE AMOUNT THAT\n"
                          << "      WILL BE TRANSFERED\n\n\n\n\n";
-                    cin >> saldo_tarik;
+                    cin >> saldo_tarik[i];
                     cout << "    DO YOU WISH TO CONTINUE\n"
                          << "       THE TRANSACTION?\n\n"
                          << "                PRESS 1 IF YES --->\n\n"
@@ -1078,6 +1091,7 @@ void menu_en(int test)
                             if (back_menu == 1)
                             {
                                 input_data += 1;
+                                saldo_awal = saldo_akhir;
                                 menu_id(1);
                             }
                             else
@@ -1109,7 +1123,7 @@ void menu_en(int test)
                         cout << endl << endl << endl << endl << endl << endl
                              << "     INPUT THE AMOUNT THAT\n"
                              << "      WILL BE TRANSFERED\n\n\n\n\n";
-                        cin >> saldo_tarik;
+                        cin >> saldo_tarik[i];
                         cout << "    DO YOU WISH TO CONTINUE\n"
                              << "       THE TRANSACTION?\n\n"
                              << "                PRESS 1 IF YES --->\n\n"
@@ -1132,6 +1146,7 @@ void menu_en(int test)
                                 if (back_menu == 1)
                                 {
                                     input_data += 1;
+                                    saldo_awal = saldo_akhir;
                                     menu_id(1);
                                 }
                                 else
@@ -1155,7 +1170,7 @@ void menu_en(int test)
                         cout << endl << endl << endl << endl << endl << endl
                              << "     INPUT THE AMOUNT THAT\n"
                              << "      WILL BE TRANSFERED\n\n\n\n\n";
-                        cin >> saldo_tarik;
+                        cin >> saldo_tarik[i];
                         cout << "    DO YOU WISH TO CONTINUE\n"
                              << "       THE TRANSACTION?\n\n"
                              << "                PRESS 1 IF YES --->\n\n"
@@ -1178,6 +1193,7 @@ void menu_en(int test)
                                 if (back_menu == 1)
                                 {
                                     input_data += 1;
+                                    saldo_awal = saldo_akhir;
                                     menu_id(1);
                                 }
                                 else
@@ -1215,6 +1231,7 @@ void menu_en(int test)
                     if (back_menu == 1)
                     {
                         input_data += 1;
+                        saldo_awal = saldo_akhir;
                         menu_id(1);
                     }
                     else
@@ -1226,7 +1243,7 @@ void menu_en(int test)
             break;
 
         case 5:
-            saldo_tarik = 1500000;
+            saldo_tarik[i] = 1500000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -1240,7 +1257,7 @@ void menu_en(int test)
             break;
 
         case 6:
-            saldo_tarik = 1000000;
+            saldo_tarik[i] = 1000000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -1254,6 +1271,7 @@ void menu_en(int test)
                     if (back_menu == 1)
                     {
                         input_data += 1;
+                        saldo_awal = saldo_akhir;
                         menu_id(1);
                     }
                     else
@@ -1270,7 +1288,7 @@ void menu_en(int test)
             break;
 
         case 7:
-            saldo_tarik = 500000;
+            saldo_tarik[i] = 500000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -1284,6 +1302,7 @@ void menu_en(int test)
                     if (back_menu == 1)
                     {
                         input_data += 1;
+                        saldo_awal = saldo_akhir;
                         menu_id(1);
                     }
                     else
@@ -1300,7 +1319,7 @@ void menu_en(int test)
             break;
 
         case 8:
-            saldo_tarik = 100000;
+            saldo_tarik[i] = 100000;
             ops_tarik_tun();
             if (saldo_akhir > 0)
             {
@@ -1314,6 +1333,7 @@ void menu_en(int test)
                     if (back_menu == 1)
                     {
                         input_data += 1;
+                        saldo_awal = saldo_akhir;
                         menu_id(1);
                     }
                     else
