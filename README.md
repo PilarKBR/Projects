@@ -1,18 +1,21 @@
 # Undergraduate Student of Computer Science at Pakuan University | Ex-Data Science & AI Mentee and MSIB Batch 6 Tribe at Startup Campus
 
-#### Technical Skills: Python, SQL, Looker Studio,
+#### Technical Skills: Python, SQL, Looker Studio, Excel
 
 ## Education		        		
 - (Ongoing) B.S., Computer Science | Pakuan University at Bogor (_September 2021 - Present_)
 
-## Work Experience
-**Data Scientist @ Toyota Financial Services (_June 2022 - Present_)**
-- Uncovered and corrected missing step in production data pipeline which impacted over 70% of active accounts
-- Redeveloped loan originations model which resulted in 50% improvement in model performance and saving 1 million dollars in potential losses
+## Experience
+**Data Science & AI Mentee @ Startup Campus (MSIB Batch 6)  (_Feb 2024 – Jun 2024_)**
+- Appointed as Batch Leader of Data Science & AI Program that Tasked with handling various problems experienced by participants and become a liaison between companies and participants
+- Creating Final Project that focused on Customer Segmentation in Java Island for an E-commerce using Kmeans
 
-**Data Science Consultant @ Shawhin Talebi Ventures LLC (_December 2020 - Present_)**
-- Conducted data collection, processing, and analysis for novel study evaluating the impact of over 300 biometrics variables on human performance in hyper-realistic, live-fire training scenarios
-- Applied unsupervised deep learning approaches to longitudinal ICU data to discover novel sepsis sub-phenotypes
+**Head Department of Education & Science @ Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) Universitas Pakuan (_May 2023 – Jan 2024_)**
+- Held "Belajar Bareng" in preparation for the mid exam with a total of more than 200 participants.
+- Appointed as Chairman of the Election Commission in 2023 by conducting General Election of the Computer Science Student Association President for the 2023 period.
+
+**Head Department of Human Resources @ IEEE Student Branch Pakuan University (_May 2023 – Jan 2024_)**
+- Became the Chief Organizer of the Webinar entitled "Manage Your Time Wisely for Success in College" with a Total of 68 Participants.
 
 ## Projects
 ### Customer Segmentation on E-commerce
