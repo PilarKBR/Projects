@@ -1,5 +1,5 @@
 # Ringkasan Insight yang di Dapat
-## Klaster yang terbentuk dari penerapan K-means pada RFM Scores untuk dataset ini berjumlah 5 klaster
+- Klaster yang terbentuk dari penerapan K-means pada RFM Scores untuk dataset ini berjumlah 5 klaster
 ## Profiling Cluster
 - Bawah (Cluster 3): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Rendah, namun Pengeluaran Paling Rendah dibanding golongan lain
 - Menengah ke Bawah (Cluster 4): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Paling Rendah, namun Pengeluaran tergolong Rendah
