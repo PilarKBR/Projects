@@ -4,7 +4,7 @@ Untuk melihat detail notebook yang digunakan dapat diakses melalui [Link Berikut
 Dikarenakan Github tidak bisa load file yang besar
 
 - Klaster yang terbentuk dari penerapan K-means pada RFM Scores untuk dataset ini berjumlah 5 klaster
-- Kategori Barang Fashion, Food & Drink, dan Transportasi menjadi primadona kebanyakan pengguna dalam transaksi pembelian kategori barang & jasa pada E-commerce ini
+- Kategori Barang Fashion, Food & Drink, dan Transportasi menjadi primadona kebanyakan pengguna dalam transaksi pembelian kategori barang & jasa pada *e-commerce* ini
 - Profiling Cluster
     - Bawah (Cluster 3): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Rendah, namun Pengeluaran Paling Rendah dibanding golongan lain
     - Menengah ke Bawah (Cluster 4): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Paling Rendah, namun Pengeluaran tergolong Rendah
@@ -32,7 +32,7 @@ To see the details of the notebook used can be accessed through [The following l
 Because Github cannot load large files
 
 - Clusters formed from the application of K-means on RFM Scores for this dataset amounted to 5 clusters
-- Categories of Goods Fashion, Food & Drink, and Transportation are the favorites of most users in purchasing transactions for goods & services categories in this E-commerce.
+- Categories of Goods Fashion, Food & Drink, and Transportation are the favorites of most users in purchasing transactions for goods & services categories in this *e-commerce*.
 - Cluster Profiling
     - Bottom (Cluster 3): The average user is a Loyal Prospective User with a relatively Low Total transaction, but the Lowest Expenditure compared to other clusters
     - Middle to Lower (Cluster 4): The average user is a Loyal Prospective User with Total transactions classified as Lowest, but Spending is Low compared to other clusters
