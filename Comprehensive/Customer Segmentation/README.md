@@ -1,13 +1,18 @@
-# Ringkasan Insight yang di Dapat
-- Klaster yang terbentuk dari penerapan K-means pada RFM Scores untuk dataset ini berjumlah 5 klaster
-## Profiling Cluster
-- Bawah (Cluster 3): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Rendah, namun Pengeluaran Paling Rendah dibanding golongan lain
-- Menengah ke Bawah (Cluster 4): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Paling Rendah, namun Pengeluaran tergolong Rendah
-- Menengah (Cluster 0): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi dan Pengeluaran tergolong Sedang
-- Menengah ke Atas (Cluster 2): Frekuensi belanja mereka memang terbilang rendah, namun sekalinya mereka bertransaksi, nominal yang dikeluarkan dan Total transaksi yang mereka lakukan tergolong Tinggi
-- Atas (Cluster 1): Frekuensi belanja mereka memang terbilang rendah, namun sekalinya mereka bertransaksi, nominal yang dikeluarkan dan Total transaksi yang mereka lakukan merupakan yang paling tertinggi diantara golongan lain
+# Bahasa Indonesia
+## Ringkasan Insight yang di Dapat
+Untuk melihat detail notebook yang digunakan dapat diakses melalui [Link Berikut](https://colab.research.google.com/drive/1kC1dS0MDsBoOxX-HXtIWr1e7uJVTd_HS?usp=sharing)
+Dikarenakan Github tidak bisa load file yang besar
 
-# Tindakan yang Harus diambil untuk per Masing Klaster
+- Klaster yang terbentuk dari penerapan K-means pada RFM Scores untuk dataset ini berjumlah 5 klaster
+- Kategori Barang Fashion, Food & Drink, dan Transportasi menjadi primadona kebanyakan pengguna dalam transaksi pembelian kategori barang & jasa pada E-commerce ini
+- Profiling Cluster
+    - Bawah (Cluster 3): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Rendah, namun Pengeluaran Paling Rendah dibanding golongan lain
+    - Menengah ke Bawah (Cluster 4): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi tergolong Paling Rendah, namun Pengeluaran tergolong Rendah
+    - Menengah (Cluster 0): Rata-rata penggunanya merupakan Calon Pengguna yang Loyal dengan Total transaksi dan Pengeluaran tergolong Sedang
+    - Menengah ke Atas (Cluster 2): Frekuensi belanja mereka memang terbilang rendah, namun sekalinya mereka bertransaksi, nominal yang dikeluarkan dan Total transaksi yang mereka lakukan tergolong Tinggi
+    - Atas (Cluster 1): Frekuensi belanja mereka memang terbilang rendah, namun sekalinya mereka bertransaksi, nominal yang dikeluarkan dan Total transaksi yang mereka lakukan merupakan yang paling tertinggi diantara golongan lain
+
+## Tindakan yang Harus diambil untuk per Masing Klaster
 - Bawah (Cluster 3):
 Kebanyakan Prediksi Kategori Barang tiap Golongan Bawah (Cluster 3) pada notebook menunjukkan prediksi yang stabil, sehingga menawarkan promo dengan harga yang terjangkau untuk kategori barang lain merupakan tindakan yang tepat untuk Golongan Bawah.
 - Menengah ke Bawah (Cluster 4):
